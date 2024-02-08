@@ -51,10 +51,18 @@ function saveDetails(todoArray) {
 
 function displayDetails() {
   let listData = "";
-  todoArray.forEach((todo,i) => {
-    listData += `<li>${i+1} <h3 id="titleHead">${todo.title} -</h3><h4 id="detailHead"> ${todo.detail} </h4><span><i class="fa-solid fa-pen" id="editIcon" onClick='editInfo(${i})'></i> <i class="fa-solid fa-trash" id="deleteIcon" onClick='deleteInfo(${i})'></i></span></li>`;
-  });
-  listContainer.innerHTML=listData;
+  let emptyListData=""
+  if(todoArray.length>0){
+    todoArray.forEach((todo,i) => {
+      listData += `<li>${i+1} <h3 id="titleHead">${todo.title} -</h3><h4 id="detailHead"> ${todo.detail} </h4><span><i class="fa-solid fa-pen-to-square" id="editIcon" onClick='editInfo(${i})'></i> <i class="fa-solid fa-trash" id="deleteIcon" onClick='deleteInfo(${i})'></i></span></li>`;
+    });
+    listContainer.innerHTML=listData;  
+  }
+  else{
+    emptyListData=`<li id="emptyList"><i class="fa-solid fa-file-pen"></i> No task details were added yet!</li>`
+    listContainer.innerHTML=emptyListData;
+
+  }
 }
 
 function editInfo(id){
