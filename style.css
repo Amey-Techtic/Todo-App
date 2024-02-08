@@ -80,6 +80,13 @@ li {
   padding: 5px;
   border-radius: 5px;
 }
+#emptyList{
+ text-align: center; 
+ border: none;
+ list-style: none;
+ color: red; 
+ font-size:larger ;
+}
 #titleHead {
   display: inline-block;
   font-weight: bold;
